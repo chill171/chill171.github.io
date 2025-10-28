@@ -1,0 +1,110 @@
+/* ===== tokens ===== */
+:root{
+    --bg-rgb: 63, 56, 52; /* rgb for #3f3834 ; if you switch --bg, update this too */
+  --bg: #3f3834;      /* Oakley-like muted brown; use #121110 for charcoal */
+  --text: #e9e7e4;    /* off-white */
+  --muted: #ada79f;   /* secondary text */
+  --line: #26221f;    /* hairline */
+  --accent: #e0312a;  /* red; swap to #3aa7ff for electric blue */
+
+  --sans: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --space: clamp(16px, 2.2vw, 28px);
+  --radius: 16px;
+  --max: 1200px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--sans); line-height:1.45;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+a{color:inherit; text-decoration:none}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 calc(var(--space)*0.9)}
+
+/* ===== header with connected tab group ===== */
+.site-header{
+  position: sticky; top:0; z-index:10;
+  background: rgba(var(--bg-rgb), 0.90);
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{height:64px; display:flex; align-items:center; justify-content:flex-end}
+.tabs{display:flex; align-items:center}
+
+/* Connected group (About / Engineering / Art) */
+.tab-group{
+  display:inline-flex;
+  border:1px solid var(--line);
+  border-radius:999px;
+  overflow:hidden;
+  background: rgba(255,255,255,0.06);
+}
+.tab-group .tab{
+  padding:.55rem 1rem;
+  border:0;             /* borders handled by group */
+  border-right:1px solid var(--line);
+  background: transparent;
+  font-size:.95rem; letter-spacing:.02em;
+  transition: color .15s ease, background .15s ease;
+}
+.tab-group .tab:last-child{ border-right:0; }
+.tab-group .tab:hover{ color:var(--accent); background: rgba(255,255,255,0.06); }
+
+/* Separated Contact pill */
+.tab-cta{
+  margin-left: .9rem;
+  display:inline-block;
+  padding:.55rem 1rem;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background: rgba(255,255,255,0.10);
+  font-size:.95rem; letter-spacing:.02em;
+  transition: border-color .15s ease, color .15s ease, background .15s ease, transform .2s ease;
+}
+.tab-cta:hover{ border-color:var(--accent); color:var(--accent); background: rgba(255,255,255,0.12); transform:translateY(-1px); }
+
+/* ===== hero (full image + centered name) ===== */
+.hero{
+  position:relative; min-height:72vh;
+  display:grid; place-items:center; text-align:center;
+  border-bottom:1px solid var(--line);
+}
+.hero-media{
+  position:absolute; inset:0; z-index:-2;
+  background:url("../assets/hero.jpg") center/cover no-repeat;
+  filter: contrast(110%) saturate(105%);
+}
+/* Same-hue overlay (uses --bg-rgb) for K2000-style emphasis */
+.hero-scrim{
+  position:absolute; inset:0; z-index:-1;
+  background:
+    /* soft center lift around the name */
+    radial-gradient(900px 420px at 50% 55%, rgba(var(--bg-rgb), 0.10), rgba(0,0,0,0) 42%),
+    /* vertical brown wash for contrast */
+    linear-gradient(to bottom, rgba(var(--bg-rgb), 0.52) 0%, rgba(var(--bg-rgb), 0.68) 60%, rgba(var(--bg-rgb), 0.82) 100%),
+    /* faint edge vignette */
+    radial-gradient(1600px 900px at 50% 50%, rgba(0,0,0,0.25), transparent 60%);
+}
+.hero-content{position:relative}
+.hero-content h1{
+  margin:0 0 .4em; font-weight:700; letter-spacing:.06em;
+  font-size: clamp(40px, 8vw, 96px);
+  /* no text-shadow/glow */
+}
+.tag{
+  margin:0; color:var(--muted);
+  font-family:var(--mono); font-size: clamp(12px, 1.6vw, 16px);
+  letter-spacing:.06em;
+}
+
+/* ===== sections ===== */
+.section{padding: calc(var(--space)*3.5) 0}
+h2{margin:0 0 .6em; font-size: clamp(20px, 3vw, 28px); letter-spacing:.02em}
+.muted{color:var(--muted)}
+
+/* ===== footer ===== */
+.site-footer{border-top:1px solid var(--line); color:var(--muted); text-align:center; padding:calc(var(--space)*2) 0}

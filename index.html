@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Charlie Hill — Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header with Oakley-ish pill tabs -->
+ <header class="site-header">
+  <div class="wrap nav">
+    <nav class="tabs" aria-label="Primary">
+      <div class="tab-group">
+        <a class="tab" href="#about">About</a>
+        <a class="tab" href="#engineering">Engineering Projects</a>
+        <a class="tab" href="#art">Art</a>
+      </div>
+      <a class="tab tab-cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+  <!-- K2000-style hero with big background image and your name centered -->
+  <section class="hero" id="home" aria-label="Hero">
+  <div class="hero-media" role="img" aria-label="Background image"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="wrap hero-content">
+    <h1>CHARLIE&nbsp;HILL</h1>
+  </div>
+</section>
+
+  <!-- Placeholder sections (we’ll fill later) -->
+  <main>
+  <section id="about" class="section">
+    <div class="wrap">
+      <h2>About</h2>
+      <p class="muted">Short bio here.</p>
+    </div>
+  </section>
+
+  <section id="engineering" class="section">
+    <div class="wrap">
+      <h2>Engineering Projects</h2>
+      <p class="muted">Grid/cards coming next.</p>
+    </div>
+  </section>
+
+  <section id="art" class="section">
+    <div class="wrap">
+      <h2>Art</h2>
+      <p class="muted">Blender renders, design studies, photography.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p class="muted"><a href="mailto:you@example.com">you@example.com</a></p>
+    </div>
+  </section>
+</main>
+
+  <footer class="site-footer">
+    <div class="wrap">© <span id="y"></span> Charlie Hill</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
