@@ -1,10 +1,10 @@
 /* ===== tokens ===== */
 :root{
     --bg-rgb: 63, 56, 52; /* rgb for #3f3834 ; if you switch --bg, update this too */
-  --bg: #3f3834;      /* Oakley-like muted brown; use #121110 for charcoal */
-  --text: #e9e7e4;    /* off-white */
+   --bg: #5c524b;      /* softer, tan-brown base */
+  --text: #e8e6e3;    /* off-white text for good contrast */
   --muted: #ada79f;   /* secondary text */
-  --line: #26221f;    /* hairline */
+   --bg: #5c524b;    /* slightly darker border tone */
   --accent: #e0312a;  /* red; swap to #3aa7ff for electric blue */
 
   --sans: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
@@ -142,23 +142,148 @@ h2{margin:0 0 .6em; font-size: clamp(20px, 3vw, 28px); letter-spacing:.02em}
 /* art subnav alignment */
 .art-subnav { display:flex; justify-content:flex-start; }
 
-/* spacious 2-column ceramics grid */
-.grid-ceramics{
-  display:grid;
+.grid-ceramics {
+  display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(12px, 2.2vw, 24px);
-  margin-top: calc(var(--space)*1.2);
-}
-.grid-ceramics figure{ margin:0; }
-.grid-ceramics img{
-  display:block; width:100%; height:auto; border-radius:12px;
-  border:1px solid var(--line); background:#0f0f0f;
+  gap: clamp(20px, 4vw, 40px);
+  margin-top: 60px;
+  margin-bottom: 80px;
+  padding: 0 4vw; /* adds left/right breathing room */
 }
 
-/* go to 2 columns on wider screens */
-@media (min-width: 820px){
-  .grid-ceramics{ grid-template-columns: 1fr 1fr; }
+.grid-ceramics figure {
+  margin: 0;
+}
+
+.grid-ceramics img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: #1b1b1b;
+}
+
+@media (min-width: 820px) {
+  .grid-ceramics {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(28px, 5vw, 60px);
+    padding: 0 6vw;
+  }
 }
 
 /* comfortable reading width */
 .section .about-lead{ max-width: 70ch; }
+
+#ceramics {
+  background: rgba(0, 0, 0, 0.04);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+/* secret CHASE link vibe */
+.chase-teaser{
+  margin-top: .6rem;
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  letter-spacing: .02em;
+}
+.chase-teaser a{
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease, color .2s ease, opacity .2s ease, transform .2s ease;
+  opacity: .85;
+}
+.chase-teaser a:hover{
+  color: var(--accent);
+  border-color: var(--accent);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* CHASE grid: mixed media (images + short looping vids) */
+.grid-chase{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: clamp(18px, 3.5vw, 40px);
+  margin-top: 28px;
+  padding-bottom: 20px;
+}
+.grid-chase img,
+.grid-chase video{
+  width: 100%; height: auto; display:block;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: #0f0f0f;
+}
+
+/* 2-cols on wider screens */
+@media (min-width: 900px){
+  .grid-chase{ grid-template-columns: 1fr 1fr; }
+}
+
+
+/* ===== CHASE theme (grays) ===== */
+.theme-chase {
+  background-color: rgb(94, 100, 106);
+  --bg: rgb(94, 100, 106);
+  --bg-rgb: 94, 100, 106;
+  --text: #e6e6e6;
+  --muted: #a9a9a9;
+  --line: #4c5055;
+}
+
+.chase-hero{
+  padding: clamp(48px, 10vw, 96px) 0 clamp(32px, 8vw, 64px);
+  background: var(--bg);   /* exact solid */
+  border: none;            /* no lines */
+}
+.wrap-narrow{ max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+.video-frame {
+  position: relative;
+  overflow: hidden;
+  background: rgb(94, 100, 106);
+  border: none;
+  border-radius: 0;
+  aspect-ratio: 16 / 9;
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  height: 102%; /* trims any bottom line */
+  object-fit: cover;
+  object-position: center top;
+  background: rgb(94, 100, 106);
+}
+
+/* subtle tint to match page gray exactly */
+.video-frame::before{
+  content:"";
+  position:absolute;
+  inset:0;
+    background: var(--bg);
+  opacity: 0.04;        /* 4% tint; adjust 0.02–0.07 if needed */
+  pointer-events:none;
+}
+
+.theme-chase .section,
+.theme-chase .site-footer,
+.theme-chase .site-header {
+  border: none;
+  box-shadow: none;
+  background: inherit;
+}
+
+/* Scope background reset to the CHASE page only */
+.theme-chase,
+.theme-chase .chase-hero,
+.theme-chase .section {
+  background: var(--bg) !important;  /* uses the per-page --bg (gray on CHASE) */
+  box-shadow: none !important;
+  border: none !important;
+}
