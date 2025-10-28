@@ -287,3 +287,48 @@ h2{margin:0 0 .6em; font-size: clamp(20px, 3vw, 28px); letter-spacing:.02em}
   box-shadow: none !important;
   border: none !important;
 }
+
+/* spacing under the video to let it "unveil" */
+.chase-blurb { 
+  padding-top: clamp(24px, 6vw, 56px);
+  padding-bottom: clamp(12px, 3vw, 28px);
+}
+
+/* centered, blended text */
+.chase-blurb p{
+  margin: 0 auto;
+  max-width: 70ch;
+  text-align: center;
+  color: color-mix(in srgb, var(--text) 75%, var(--bg) 25%); /* blended with background */
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+/* grid: three across (desktop), clean & industrial */
+.chase-grid { padding-top: clamp(24px, 4vw, 40px); }
+.chase-grid .cg{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(12px, 2.6vw, 22px);
+}
+
+/* 2 columns on tablets */
+@media (min-width: 720px){
+  .chase-grid .cg{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* 3 columns on desktop */
+@media (min-width: 1040px){
+  .chase-grid .cg{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* images: sharp edges, subtle line, no glow */
+.chase-grid img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius: 0;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  filter: contrast(102%) saturate(102%);
+}

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CHASE — Charlie Hill</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<script>
+  (function(){
+    const v = document.getElementById('chaseHero');
+    if(!v) return;
+
+    // Safari/iOS likes muted+playsinline for autoplay
+    v.muted = true;
+    v.playsInline = true;
+
+    // When the video ends, keep the last frame visible
+    v.addEventListener('ended', () => {
+      try {
+        v.currentTime = v.duration; // jump to last frame
+      } catch (e) {}
+      v.pause();
+    }, { once: true });
+  })();
+</script>
+
+
+
+
+
+
+
+<body class="theme-chase">
+  <header class="site-header">
+    <div class="wrap nav">
+      <nav class="tabs" aria-label="Primary">
+        <div class="tab-group">
+          <a class="tab" href="index.html#about">About</a>
+          <a class="tab" href="engineering.html">Engineering Projects</a>
+          <a class="tab" href="art.html">Art</a>
+        </div>
+        <a class="tab tab-cta" href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Video hero (centered, not full-bleed) -->
+  <section class="chase-hero" aria-label="CHASE Hero">
+    <div class="wrap-narrow">
+      <div class="video-frame">
+        <video id="chaseHero"
+               src="assets/CHASE/CHASEvid2.mp4"
+               autoplay
+               muted
+               playsinline
+               preload="metadata">
+        </video>
+      </div>
+    </div>
+  </section>
+
+<!-- CHASE blurb (centered, subtle, with breathing room) -->
+<section class="section chase-blurb">
+  <div class="wrap-narrow">
+    <p>
+      <strong>CHASE</strong> is for when I really don’t know what’s going on. It’s been an outlet
+      since ceramics took a back seat and engineering’s at the wheel. It’s part memory—capturing
+      fragments with friends—and part “make something that looks cool and unique.”<br><br>
+      <em>clock hands advance, seize everything</em> is a reminder not to let fear of judgment stop me from creating.
+      Aside from this portfolio, I’ve never really made any of it public. Hope you enjoy.
+    </p>
+  </div>
+</section>
+
+<!-- CHASE images (3 x 2 grid) -->
+<section class="section chase-grid">
+  <div class="wrap-narrow">
+    <div class="cg">
+      <img src="assets/CHASE/CHASE1.png" alt="CHASE image 1">
+      <img src="assets/CHASE/CHASE2.png" alt="CHASE image 2">
+      <img src="assets/CHASE/CHASE3.png" alt="CHASE image 3">
+      <img src="assets/CHASE/CHASE4.png" alt="CHASE image 4">
+      <img src="assets/CHASE/CHASE5.png" alt="CHASE image 5">
+      <img src="assets/CHASE/CHASE6.png" alt="CHASE image 6">
+    </div>
+  </div>
+</section>
+
+</html>
