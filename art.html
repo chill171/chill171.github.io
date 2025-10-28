@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Art — Charlie Hill</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Shared header -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <nav class="tabs" aria-label="Primary">
+        <div class="tab-group">
+          <a class="tab" href="index.html#about">About</a>
+          <a class="tab" href="engineering.html">Engineering Projects</a>
+          <a class="tab" href="art.html">Art</a>
+        </div>
+        <a class="tab tab-cta" href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Art hero -->
+  <section class="hero" aria-label="Art Hero">
+    <div class="hero-media" style="background-image:url('assets/Hero/hero3.JPG')"></div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="wrap hero-content"><h1>ART</h1></div>
+  </section>
+
+  <main>
+    <!-- Art sub-tabs -->
+    <section class="section section-tight">
+      <div class="wrap art-subnav">
+        <div class="tab-group">
+          <a class="tab" href="#ceramics">Ceramics</a>
+          <a class="tab" href="#chase">CHASE</a>
+          <a class="tab" href="#photos">Photos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ceramics -->
+    <section id="ceramics" class="section">
+      <div class="wrap">
+        <div class="section-head"><h2>Ceramics</h2></div>
+
+        <p class="about-lead">
+          I got into engineering through ceramics — my siblings both excelled at wheel throwing, and it pushed me to find a creative path of my own.
+          The work shown here comes from my senior thesis: stoneware–porcelain bodies with a blue celadon glaze.
+          Nature has always been a reference point; I wanted to contrast that with the fine-arts tradition of ancient Korean celadon and porcelain.
+          After throwing, I use water to erode the bone-dry forms, choosing different durations to show the transition from nature’s course to refined ceramic finish.
+        </p>
+
+        <div class="grid-ceramics">
+          <figure><img src="assets/Ceramics/Ceramics1.jpg"  alt="Ceramics 1"></figure>
+          <figure><img src="assets/Ceramics/Ceramics2.jpg"  alt="Ceramics 2"></figure>
+          <figure><img src="assets/Ceramics/Ceramics3.jpg"  alt="Ceramics 3"></figure>
+          <figure><img src="assets/Ceramics/Ceramics4.jpg"  alt="Ceramics 4"></figure>
+          <figure><img src="assets/Ceramics/Ceramics5.jpg"  alt="Ceramics 5"></figure>
+          <figure><img src="assets/Ceramics/Ceramics6.jpg"  alt="Ceramics 6"></figure>
+          <figure><img src="assets/Ceramics/Ceramics7.jpg"  alt="Ceramics 7"></figure>
+          <figure><img src="assets/Ceramics/Ceramics8.jpg"  alt="Ceramics 8"></figure>
+          <figure><img src="assets/Ceramics/Ceramics9.jpg"  alt="Ceramics 9"></figure>
+          <figure><img src="assets/Ceramics/Ceramics10.jpg" alt="Ceramics 10"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHASE (placeholder) -->
+    <section id="chase" class="section">
+      <div class="wrap">
+        <div class="section-head"><h2>CHASE</h2></div>
+        <p class="muted">Screenshots + Blender intro sims here (no personal clips). We’ll wire this next.</p>
+      </div>
+    </section>
+
+    <!-- Photos (placeholder) -->
+    <section id="photos" class="section">
+      <div class="wrap">
+        <div class="section-head"><h2>Photos</h2></div>
+        <p class="muted">Small, clean grid coming next.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">© <span id="y"></span> Charlie Hill</div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
