@@ -332,3 +332,49 @@ h2{margin:0 0 .6em; font-size: clamp(20px, 3vw, 28px); letter-spacing:.02em}
   background: var(--bg);
   filter: contrast(102%) saturate(102%);
 }
+
+/* red micro-labels */
+.accent-label{
+  color: var(--accent);
+  font-family: var(--mono);
+  letter-spacing: .08em;
+  font-size: .9rem;
+  text-transform: uppercase;
+  opacity: .9;
+}
+
+/* give the hero some breathing room before the blurb already done; 
+   now also add some space before the grid label */
+.section-tight { padding-top: clamp(10px, 1.8vw, 16px); padding-bottom: clamp(10px, 1.8vw, 16px); }
+
+/* inline video (same visual width as grid; no stretching) */
+.chase-video { 
+  padding-top: clamp(22px, 4vw, 36px);
+}
+.video-frame--inline{
+  /* same container rules as hero frame, but we let the video size by its aspect */
+  border: none;
+  border-radius: 0;
+  background: var(--bg);
+}
+.video-frame--inline video{
+  width: 100%;
+  height: auto;         /* keep native aspect, no stretch */
+  object-fit: contain;  /* safety */
+  background: var(--bg);
+}
+
+.video-frame--inline{ position: relative; }
+
+.play-btn{
+  position:absolute; right:10px; bottom:10px;
+  padding:.35rem .5rem; line-height:1;
+  font-family: var(--mono); font-size:.95rem;
+  color: var(--text);
+  background: rgba(0,0,0,0.25);
+  border:1px solid var(--line); border-radius:8px;
+  cursor:pointer; opacity:0; pointer-events:none;
+  transition: opacity .15s ease, transform .15s ease, color .15s ease, border-color .15s ease;
+}
+.play-btn.show{ opacity:.9; pointer-events:auto; }
+.play-btn:hover{ transform:translateY(-1px); color:var(--accent); border-color:var(--accent); }

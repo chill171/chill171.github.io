@@ -15,28 +15,47 @@
 </head>
 
 <script>
+  // Freeze the HERO video on its last frame
   (function(){
     const v = document.getElementById('chaseHero');
-    if(!v) return;
-
-    // Safari/iOS likes muted+playsinline for autoplay
+    if (!v) return;
     v.muted = true;
     v.playsInline = true;
-
-    // When the video ends, keep the last frame visible
     v.addEventListener('ended', () => {
-      try {
-        v.currentTime = v.duration; // jump to last frame
-      } catch (e) {}
+      try { v.currentTime = v.duration; } catch(e){}
       v.pause();
     }, { once: true });
   })();
 </script>
 
+<script>
+  // Show [>] replay button when the INLINE video ends
+  (function(){
+    const v = document.getElementById('chaseLoop');
+    const btn = document.querySelector('.video-frame--inline .play-btn');
+    if (!v || !btn) return;
 
+    v.muted = true;
+    v.playsInline = true;
 
+    const showBtn = () => btn.classList.add('show');
+    const hideBtn = () => btn.classList.remove('show');
 
+    v.addEventListener('ended', () => {
+      try { v.currentTime = v.duration; } catch(e){}
+      v.pause();
+      showBtn();
+    });
 
+    v.addEventListener('play', hideBtn);
+
+    btn.addEventListener('click', () => {
+      v.currentTime = 0;
+      v.play();
+      hideBtn();
+    });
+  })();
+</script>
 
 
 <body class="theme-chase">
@@ -54,19 +73,19 @@
   </header>
 
   <!-- Video hero (centered, not full-bleed) -->
-  <section class="chase-hero" aria-label="CHASE Hero">
-    <div class="wrap-narrow">
-      <div class="video-frame">
-        <video id="chaseHero"
-               src="assets/CHASE/CHASEvid2.mp4"
-               autoplay
-               muted
-               playsinline
-               preload="metadata">
-        </video>
-      </div>
+<section class="chase-hero" aria-label="CHASE Hero">
+  <div class="wrap-narrow">
+    <div class="video-frame">
+      <video id="chaseHero"
+             src="assets/CHASE/CHASEvid2.mp4"
+             autoplay
+             muted
+             playsinline
+             preload="metadata">
+      </video>
     </div>
-  </section>
+  </div>
+</section>
 
 <!-- CHASE blurb (centered, subtle, with breathing room) -->
 <section class="section chase-blurb">
@@ -81,6 +100,14 @@
   </div>
 </section>
 
+<!-- Sub-label before the image grid -->
+<section class="section section-tight">
+  <div class="wrap-narrow">
+    <div class="accent-label">BLENDER</div>
+  </div>
+</section>
+
+
 <!-- CHASE images (3 x 2 grid) -->
 <section class="section chase-grid">
   <div class="wrap-narrow">
@@ -94,5 +121,34 @@
     </div>
   </div>
 </section>
+
+<!-- Centered MP4 under the images -->
+<!-- Centered MP4 under the images -->
+<section class="section chase-video">
+  <div class="wrap-narrow">
+    <div class="video-frame video-frame--inline">
+      <video id="chaseLoop"
+             src="assets/CHASE/CHASEvid1.mp4"
+             autoplay
+             muted
+             playsinline
+             preload="metadata">
+      </video>
+
+      <!-- minimal replay button -->
+      <button class="play-btn" type="button" aria-label="Play once">[&gt;]</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- Red label *below* the images, per your note -->
+<section class="section section-tight">
+  <div class="wrap-narrow">
+    <div class="accent-label">IMAGES</div>
+  </div>
+</section>
+
+
 
 </html>
