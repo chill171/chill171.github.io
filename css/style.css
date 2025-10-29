@@ -378,3 +378,33 @@ h2{margin:0 0 .6em; font-size: clamp(20px, 3vw, 28px); letter-spacing:.02em}
 }
 .play-btn.show{ opacity:.9; pointer-events:auto; }
 .play-btn:hover{ transform:translateY(-1px); color:var(--accent); border-color:var(--accent); }
+
+/* Blended micro copy (same tone as other CHASE text) */
+.chase-note{
+  margin: .35rem 0 0;
+  max-width: 70ch;
+  color: color-mix(in srgb, var(--text) 78%, var(--bg) 22%);
+  line-height: 1.6;
+  letter-spacing: .01em;
+}
+
+/* Zero-gap vertical stack of images */
+.stack { padding-top: 8px; padding-bottom: 8px; }
+.stack-tight{ line-height: 0; }          /* kill inline gaps */
+.stack-tight img{
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--bg);
+}
+
+/* Camera photo fills wrap width, sharp edges */
+.edge-to-edge{
+  display:block; width:50%; height:auto; border:0;  margin-left: auto; margin-right: auto;border-radius:0; background:var(--bg);
+}
+
+/* Optional: slightly tighter label spacing here */
+.section-tight { padding-top: clamp(8px, 1.4vw, 14px); padding-bottom: clamp(8px, 1.4vw, 14px); }
