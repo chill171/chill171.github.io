@@ -68,10 +68,16 @@ a{color:inherit; text-decoration:none}
 .tab-cta:hover{ border-color:var(--accent); color:var(--accent); background: rgba(255,255,255,0.12); transform:translateY(-1px); }
 
 /* ===== hero (full image + centered name) ===== */
-.hero{
-  position:relative; min-height:72vh;
-  display:grid; place-items:center; text-align:center;
-  border-bottom:1px solid var(--line);
+.hero {
+  position: relative;
+  min-height: 72vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  max-width: 1200px;       /* keeps it from full bleed */
+  margin: 0 auto;          /* centers it */
+  padding: 0 4vw;          /* optional: side breathing room */
 }
 .hero-media{
   position:absolute; inset:0; z-index:-2;
@@ -274,10 +280,14 @@ h2{margin:0 0 .6em; font-size: clamp(20px, 3vw, 28px); letter-spacing:.02em}
 
 .theme-chase .section,
 .theme-chase .site-footer,
-.theme-chase .site-header {
-  border: none;
-  box-shadow: none;
-  background: inherit;
+/* Header = same solid color as page, no translucency */
+.site-header{
+  position: sticky; 
+  top: 0; 
+  z-index: 10;
+  background: var(--bg);          /* was rgba(var(--bg-rgb), .90) */
+  border-bottom: 1px solid var(--line);  /* keep if you want a hairline */
+  backdrop-filter: none;          /* remove blur tint */
 }
 
 /* Scope background reset to the CHASE page only */
@@ -344,6 +354,7 @@ h2{margin:0 0 .6em; font-size: clamp(20px, 3vw, 28px); letter-spacing:.02em}
   opacity: .9;
 }
 
+
 /* give the hero some breathing room before the blurb already done; 
    now also add some space before the grid label */
 .section-tight { padding-top: clamp(10px, 1.8vw, 16px); padding-bottom: clamp(10px, 1.8vw, 16px); }
@@ -409,3 +420,31 @@ h2{margin:0 0 .6em; font-size: clamp(20px, 3vw, 28px); letter-spacing:.02em}
 
 /* Optional: slightly tighter label spacing here */
 .section-tight { padding-top: clamp(8px, 1.4vw, 14px); padding-bottom: clamp(8px, 1.4vw, 14px); }
+
+
+/* Resume section (clean, inline style) */
+.resume-section {
+  
+  padding-top: 8px;
+  padding-bottom: 12px;
+}
+
+
+.resume-blurb {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  max-width: 70ch;
+}
+
+.resume-inline {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.resume-inline:hover {
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+}
+
