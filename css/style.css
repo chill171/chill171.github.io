@@ -448,3 +448,286 @@ h2{margin:0 0 .6em; font-size: clamp(20px, 3vw, 28px); letter-spacing:.02em}
   border-bottom: 1px solid var(--accent);
 }
 
+/* ===== Engineering Projects layout ===== */
+.project-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: clamp(20px, 4vw, 60px);
+  margin-bottom: clamp(60px, 8vw, 120px);
+}
+
+/* Gallery for first project */
+.project-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(10px, 2vw, 20px);
+  margin-top: 1.5rem;
+}
+
+.project-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #1b1b1b;
+}
+
+/* On larger screens, show 3 images side by side */
+@media (min-width: 880px) {
+  .project-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Split layout: 1 large image left, 2 stacked right */
+.project-gallery-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(12px, 2vw, 20px);
+  margin-top: 1.5rem;
+}
+
+/* left (large) image */
+.gallery-left img,
+.gallery-right img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #1b1b1b;
+}
+
+/* On desktop, show 1 large + 2 stacked */
+@media (min-width: 880px) {
+  .project-gallery-split {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+
+  .gallery-right {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.2vw, 16px);
+  }
+
+  .gallery-left img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.project-text {
+  max-width: 60ch;
+  text-align: left;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #1b1b1b;
+}
+
+/* Two-column layout for larger screens */
+@media (min-width: 880px) {
+  .project-block {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project-text {
+    text-align: left;
+  }
+}
+
+/* ===== Engineering (TDA fixture) wide wrapper + gallery grid ===== */
+
+
+/* ===== Stacked gallery layout ===== */
+.proj-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.5vw, 18px);
+  margin-top: 1.5rem;
+}
+
+/* Smaller hero image */
+.proj-stack .main img {
+  width: 70%;       /* adjust smaller/larger if needed */
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #1b1b1b;
+}
+
+/* Full-width stacked images below */
+.proj-stack .sub img {
+  width: 90%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #1b1b1b;
+}
+
+/* ===== Engineering split layout (natural image sizes) ===== */
+.proj-split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: start;
+  justify-content: center;
+  gap: clamp(8px, 1.2vw, 16px);
+  margin: 2rem auto;
+  max-width: 1100px;
+  padding: 0 2vw;
+  transform: scale(0.7);
+  transform-origin: top center;
+}
+
+/* Left main image */
+.proj-split .main img {
+  width: 100%;
+  height: auto;          /* natural proportions */
+  object-fit: contain;   /* prevent cropping */
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #1b1b1b;
+}
+
+/* Right stacked images */
+.side-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 0.8vw, 10px);
+  justify-content: flex-start;
+}
+
+.side-stack img {
+  width: 100%;
+  height: auto;          /* natural scaling */
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #1b1b1b;
+}
+
+/* Responsive collapse for smaller screens */
+@media (max-width: 880px) {
+  .proj-split {
+    grid-template-columns: 1fr;
+    transform: none;
+    max-width: 100%;
+  }
+  .side-stack {
+    flex-direction: column;
+  }
+}
+
+/* ===== Engineering project row (text + images) ===== */
+.proj-row{
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) 1.2fr; /* text | gallery */
+  align-items: start;
+  gap: clamp(20px, 3vw, 36px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3vw;
+  /* no scaling here; keep it natural & readable */
+}
+
+.proj-text{
+  max-width: 46ch; /* nicely readable column */
+}
+
+/* two-column gallery: big image + vertical stack */
+.proj-split{
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr; /* main | stack */
+  align-items: start;
+  gap: clamp(8px, 1.2vw, 14px);
+}
+
+.proj-split img{
+  display: block;
+  width: 100%;
+  height: auto;         /* keep natural aspect; no cropping */
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #1b1b1b;
+}
+
+.side-stack{
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 0.9vw, 10px);
+}
+
+/* Stack on small screens */
+@media (max-width: 900px){
+  .proj-row{
+    grid-template-columns: 1fr;
+  }
+  .proj-split{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== GIF on top, 3 images below ===== */
+.proj-stack{
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: clamp(10px, 1.4vw, 16px);
+  align-items: start;
+}
+
+/* Large GIF – keep natural aspect, no crop */
+.proj-gif{
+  display:block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #1b1b1b;
+}
+
+/* Row of three images */
+.three-wide{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(6px, 1vw, 12px);
+}
+
+.three-wide img{
+  display:block;
+  width:100%;
+  height:auto;           /* no cropping */
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #1b1b1b;
+}
+
+/* Stack on small screens */
+@media (max-width: 900px){
+  .three-wide{ grid-template-columns: 1fr; }
+}
+
+.section { padding: 60px 0; }
+.section + .section { margin-top: -60px; }
+
+
+/* Sub-note under project description — same style as resume note on About page */
+.proj-subnote {
+  font-family: var(--mono);                /* same font as the resume text */
+  font-size: clamp(12px, 0.9vw, 14px);     /* smaller, matches About page */
+  color: var(--muted);                     /* NOT red, same muted gray */
+  opacity: 0.85;
+  margin-top: 0.6rem;
+  letter-spacing: 0.2px;
+}
