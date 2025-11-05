@@ -30,30 +30,32 @@
   </section>
 
   <!-- ============ Thermal Sleeving Fixture ============ -->
-<section class="section wrap">
-  <div class="wrap proj-row">
-    
-    <div class="proj-text">
-      <h2>Thermal Sleeving Fixture</h2>
-      <p class="muted"> 
-        Designed and modeled a tight-tolerance thermal sleeving fixture in SolidWorks to resolve
-        recurring insertion failures; produced GD&T engineering drawings and sourced machined
-        components, eliminating ~$10K/batch rework and reducing insertion failures for TDA Magnetics.
-      </p>
-      <p class="proj-subnote">
-        Main assembly shown in large image. Zoomed top view and side view are shown. Top plate drawing shown which was sent to manufactor with full GD&T.
-      </p>
-    </div>
+<section class="section">
+  <div class="wrap">
+    <div class="proj-row">
+      <div class="proj-text">
+        <h2>Thermal Sleeving Fixture</h2>
+        <p class="muted"> 
+          Problem: TDA Magnetics was experiencing recurring insertion failures during the thermal sleeving process, leading to damaged parts and ~$10K per batch in rework. Operators relied on inconsistent manual setups, which caused misalignment and downtime.
+        <p>
+        <p class="muted"> 
+          Solution: Designed a fully repeatable thermal sleeving fixture in SolidWorks with GD&T-controlled components, an adjustable clamping system, and a mobile frame for ergonomic use. The fixture eliminated alignment variability, reduced batch rework costs, and improved operator throughput. Full engineering drawing package was produced and sent to a machine shop for fabrication.
+        </p>
+        </p>
+        <p class="proj-subnote">
+          Large image shows the full assembly. Top-view and side-view images show alignment and clamping features. Bottom image shows the manufacturing drawing issued to the vendor.
+        </p>
+      </div>
 
-    <div class="proj-split">
-      <img src="assets/Engineering/TDA25Full.png" alt="Full fixture" class="main-img">
-      <div class="side-stack">
-        <img src="assets/Engineering/TDA25TopZoom.png" alt="Top view">
-        <img src="assets/Engineering/TDA25FrontZoom.png" alt="Front view">
-        <img src="assets/Engineering/TDA25DrawingIMG.png" alt="Drawing">
+      <div class="proj-split">
+        <img src="assets/Engineering/TDA25Full.png" alt="Full fixture" class="main-img">
+        <div class="side-stack">
+          <img src="assets/Engineering/TDA25TopZoom.png" alt="Top view">
+          <img src="assets/Engineering/TDA25FrontZoom.png" alt="Front view">
+          <img src="assets/Engineering/TDA25DrawingIMG.png" alt="Drawing">
+        </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -68,16 +70,15 @@
       <div class="proj-text">
         <h2>Magnetizing Fixtures</h2>
         <p class="muted">
-          Automated SolidWorks fixture design using equations, design tables, and macros. 
-          This allowed magnetizing operators at TDA Magnetics to create new part fixtures with no SW experience, 
-          also reducing creation from 15 min to 10 sec when comparing the previous method.
+          Problem: At TDA, creating new magnetizing fixtures required 10 minutes of manual CAD modeling per part, slowing down production and requiring SolidWorks experience that operators didn’t have.
+        </p>
+
+        <p class="muted">
+          Solution: Developed an automated SolidWorks model driven by equations, design tables, and an Excel interface. Operators can now generate custom fixtures in ~10 seconds without modifying CAD manually. The system standardizes fixture geometry, supports rapid coil setup, and removes the need for engineering involvement in routine fixture creation.
         </p>
 
         <p class="proj-subnote">
-          4 samples fixutres are shown in the large gif.
-          Rear view also provided, notice part number and # of fixtures to allow efficent magnetic coil packing.
-          Equations used in the model are shown.
-          Design sheet in excel connected to model is shown.
+         The large GIF shows four automatically generated fixtures. Additional images show the rear view, parametric equations, and the Excel-based input sheet.
         </p>
       </div>
 
@@ -98,10 +99,51 @@
   </div>
 </section>
 
+<!-- ===== Project 3 ===== -->
+<section class="section">
+  <div class="wrap">
+    <div class="proj-row">
+      <div class="proj-text">
+        <h2>G-Code Modifier Tool</h2>
+        <p class="muted">
+          Problem: Making repetitive G-code edits for 3D printing, such as temperature changes, purge routines, or bed leveling commands, required re-slicing parts every time—adding unnecessary time and introducing room for error.
+        </p>
+
+          <p class="muted">
+         Solution: Built a Python command-line tool to batch-edit G-code files automatically, allowing users to insert, remove, or replace commands without opening a slicer. The tool streamlines iteration during prototyping and is especially useful for large-file or multi-machine workflows.
+
+        </p>
+
+        <p class="proj-subnote">
+          Source available on
+          <a class="proj-link" href="https://github.com/chill171/gcode-modifier" target="_blank" rel="noopener">GitHub</a>.
+        </p>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="wrap">
+    <p class="proj-subnote">
+      More engineering work is listed on my LinkedIn — full project write-ups are being added here over time.
+    </p>
+  </div>
+</section>
+
+<div class="media-viewer" aria-hidden="true">
+  <div class="media-viewer-panel" role="dialog" aria-modal="true" tabindex="-1">
+    <button class="media-viewer-close" type="button" aria-label="Close expanded image">Close</button>
+    <img src="" alt="">
+  </div>
+</div>
 
   <!-- Footer -->
   <footer class="site-footer">
     <p>© 2025 Charlie Hill</p>
   </footer>
+  <script src="js/media-viewer.js" defer></script>
 </body>
 </html>
