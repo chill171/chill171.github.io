@@ -29,8 +29,20 @@
     </div>
   </section>
 
+  <main>
+    <!-- Engineering sub-tabs -->
+    <section class="section section-tight">
+      <div class="wrap art-subnav">
+        <div class="tab-group">
+          <a class="tab" href="#projects">Projects</a>
+          <a class="tab" href="#publications">Publications</a>
+        </div>
+      </div>
+    </section>
+
+  <!-- ============ Projects Section ============ -->
+  <section id="projects" class="section">
   <!-- ============ Thermal Sleeving Fixture ============ -->
-<section class="section">
   <div class="wrap">
     <div class="proj-row">
       <div class="proj-text">
@@ -47,7 +59,7 @@
         </p>
       </div>
 
-      <div class="proj-split">
+      <div class="proj-split" data-gallery="thermal-sleeving">
         <img src="assets/Engineering/TDA25Full.png" alt="Full fixture" class="main-img">
         <div class="side-stack">
           <img src="assets/Engineering/TDA25TopZoom.png" alt="Top view">
@@ -84,7 +96,7 @@
 
 
       <!-- Right: media (GIF on top, 3 images below) -->
-      <div class="proj-stack">
+      <div class="proj-stack" data-gallery="magnetizing">
         <!-- Large GIF -->
         <img src="assets/Engineering/TDA24gif.gif" alt="Iteration animation of the prototype" class="proj-gif">
 
@@ -113,14 +125,14 @@
          Solution: Built a Python command-line tool to batch-edit G-code files automatically, allowing users to insert, remove, or replace commands without opening a slicer. The tool streamlines iteration during prototyping and is especially useful for large-file or multi-machine workflows.
 
         </p>
+      </div>
 
-        <p class="proj-subnote">
-          Source available on
+      <div class="proj-text" style="display: flex; align-items: flex-start; justify-content: flex-end; padding-top: 2.5rem;">
+        <p class="proj-subnote" style="margin-top: 0;">
+          Source available on<br>
           <a class="proj-link" href="https://github.com/chill171/gcode-modifier" target="_blank" rel="noopener">GitHub</a>.
         </p>
       </div>
-
-
     </div>
   </div>
 </section>
@@ -132,10 +144,39 @@
     </p>
   </div>
 </section>
+  </section>
+
+  <!-- ============ Publications Section ============ -->
+  <section id="publications" class="section">
+    <div class="wrap">
+      <div class="section-head"><h2>Publications</h2></div>
+      
+      <div class="proj-row">
+        <div class="proj-text">
+          <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: clamp(18px, 2.5vw, 24px);">Surface Roughness of Additive Manufacturing</h3>
+          <p class="muted">
+            Designed and conducted a two-level, three-factor DOE to evaluate surface roughness in PLA 3D-printed parts.
+            Analyzed effects of orientation, layer height, and filament temperature on surface quality, identifying optimization factors.
+            Measured roughness using a Surtronic Surface Roughness Tester and documented findings for publication.
+          </p>
+        </div>
+        
+        <div class="proj-text" style="display: flex; align-items: flex-start; justify-content: flex-end; padding-top: 2.5rem;">
+          <p class="proj-subnote" style="margin-top: 0;">
+            Published research available at:<br>
+            <a class="proj-link" href="assets/Publications/DOE-7-30-25_final.pdf" target="_blank" rel="noopener">View Publication (PDF)</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
 
 <div class="media-viewer" aria-hidden="true">
   <div class="media-viewer-panel" role="dialog" aria-modal="true" tabindex="-1">
     <button class="media-viewer-close" type="button" aria-label="Close expanded image">Close</button>
+    <button class="media-viewer-nav media-viewer-prev" type="button" aria-label="Previous image">‹</button>
+    <button class="media-viewer-nav media-viewer-next" type="button" aria-label="Next image">›</button>
     <img src="" alt="">
   </div>
 </div>
